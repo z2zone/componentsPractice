@@ -13,7 +13,7 @@ const Accordion = ({dummyText}) => {
         });
         // Functional setState gives you the most updated piece of state. 
         // It is useful if the new state value is dependate on old state value. 
-
+        // Practically identical as below:
         // if (expandedIndex === openIndex){
         //     setExpandedIndex(-1);  
         // }else{
