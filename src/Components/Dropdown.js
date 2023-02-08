@@ -1,11 +1,11 @@
 import {useState} from 'react';
 
-const Dropdown = ({options}) => {
+const Dropdown = ({options, handleSelection, selected}) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const handleOptionClick = (selectedOption) =>{
-        console.log(selectedOption);
         setIsOpen(false);
+        handleSelection(selectedOption);
     }
 
     const handleToggleOpen = () =>{
@@ -25,7 +25,7 @@ const Dropdown = ({options}) => {
 
     return (
         <div>
-            <div onClick={handleToggleOpen}>Select...</div>
+            <div onClick={handleToggleOpen}>{selected?.label || "Select"}</div>
             {isOpen && renderedList}
         </div>
     );
