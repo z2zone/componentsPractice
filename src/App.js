@@ -16,7 +16,7 @@ const App = () => {
         {label: "mar", value: "m6"}
     ];
     return(
-        <Dropdown options={options} handleSelection={handleSelection} selected={selected}/>
+        <Dropdown options={options} onChange={handleSelection} value={selected}/>
     );
 }
 
