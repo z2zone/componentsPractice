@@ -1,8 +1,24 @@
-import {useState} from 'react';
+import {useState, useRef, useEffect} from 'react';
 import {GoChevronDown} from 'react-icons/go'
 
 const Dropdown = ({options, onChange, value}) => {
     const [isOpen, setIsOpen] = useState(false);
+    const el = useRef();
+
+    useEffect(()=>{
+        const handler = (event) =>{
+            if(el.current && !el.current.contains(event.target)){
+                setIsOpen(false);
+            }else{
+                return;
+            }
+        }
+        document.addEventListener('click', handler, true);
+        
+        return () => {
+            document.removeEventListener('click', handler);
+        };
+    },[]);
 
     const handleOptionClick = (selectedOption) =>{
         setIsOpen(false);
@@ -26,7 +42,7 @@ const Dropdown = ({options, onChange, value}) => {
     });
 
     return (
-        <div className="w-48 relative">
+        <div ref={el} className="w-48 relative">
             <div 
                 onClick={handleToggleOpen}
                 className="flex justify-between items-center cursor-pointer border rounded p-3 shadow bg-white w-full"
