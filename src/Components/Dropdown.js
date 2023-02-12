@@ -7,10 +7,10 @@ const Dropdown = ({options, onChange, value}) => {
 
     useEffect(()=>{
         const handler = (event) =>{
-            if(el.current && !el.current.contains(event.target)){
-                setIsOpen(false);
-            }else{
+            if(!el.current){
                 return;
+            }else if(!el.current.contains(event.target)){
+                setIsOpen(false);
             }
         }
         document.addEventListener('click', handler, true);
@@ -34,7 +34,7 @@ const Dropdown = ({options, onChange, value}) => {
             <div
                 className="hover:bg-sky-100 rounded cursor-pointer p-1" 
                 key={option.value}
-                onClick={()=>{handleOptionClick(option)}}
+                onClick={()=>handleOptionClick(option)}
             >
                 {option.label}
             </div>
