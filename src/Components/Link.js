@@ -8,7 +8,7 @@ const Link = ({children, destination}) => {
         event.preventDefault();
         navigate(destination);
     }
-    return <a onClick={handleClick}>{children}</a>
+    return <a className="text-blue-500 cursor-pointer mb-3" onClick={handleClick}>{children}</a>
 }
 
 export default Link;

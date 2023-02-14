@@ -1,24 +1,25 @@
 import {useState, useRef, useEffect} from 'react';
-import {GoChevronDown} from 'react-icons/go'
+import {GoChevronDown} from 'react-icons/go';
 
 const Dropdown = ({options, onChange, value}) => {
     const [isOpen, setIsOpen] = useState(false);
     const el = useRef();
 
-    useEffect(()=>{
-        const handler = (event) =>{
-            if(!el.current){
-                return;
-            }else if(!el.current.contains(event.target)){
-                setIsOpen(false);
-            }
-        }
-        document.addEventListener('click', handler, true);
+    // useEffect(()=>{
+    //     const handler = (event) =>{
+    //         if(!el.current){
+    //             return;
+    //         }
+    //         if(!el.current.contains(event.target)){
+    //             setIsOpen(false);
+    //         }
+    //     }
+    //     document.addEventListener('click', handler, true);
         
-        return () => {
-            document.removeEventListener('click', handler);
-        };
-    },[]);
+    //     return () => {
+    //         document.removeEventListener('click', handler);
+    //     };
+    // },[]);
 
     const handleOptionClick = (selectedOption) =>{
         setIsOpen(false);

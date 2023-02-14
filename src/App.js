@@ -1,4 +1,4 @@
-import Link from './Components/Link';
+import SideBar from './Components/SideBar';
 import Route from './Components/Route';
 import DropdownPage from './Pages/DropdownPage';
 import AccordionPage from './Pages/AccordionPage';
@@ -6,10 +6,9 @@ import AccordionPage from './Pages/AccordionPage';
 const App = () => {
 
     return(
-        <div>
-            <Link destination="/dropdown">Dropdown</Link>
-            <Link destination="/accordion">Accordion</Link>
-            <Route destination="/accordion">
+        <div className="container mx-auto grid grid-cols-6 gap-4 mt-4">
+            <SideBar/>
+            <Route destination="/">
                 <AccordionPage/>
             </Route>
             <Route destination="/dropdown">
