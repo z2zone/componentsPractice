@@ -6,6 +6,7 @@ const SideBar = () => {
             <Link destination="/">Accordion</Link>
             <Link destination="/dropdown">Dropdown</Link>  
             <Link destination="/modal">Modal</Link>
+            <Link destination="/table">Table</Link>
         </div>
     );
 }

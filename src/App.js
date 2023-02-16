@@ -3,6 +3,7 @@ import Route from './Components/Route';
 import DropdownPage from './Pages/DropdownPage';
 import AccordionPage from './Pages/AccordionPage';
 import ModalPage from './Pages/ModalPage';
+import TablePage from './Pages/TablePage';
 
 const App = () => {
 
@@ -17,6 +18,9 @@ const App = () => {
             </Route>
             <Route destination="/modal">
                 <ModalPage/>
+            </Route>
+            <Route destination="/table">
+                <TablePage/>
             </Route>
         </div>
     );
