@@ -1,6 +1,14 @@
-const Table = () => {
+const Table = ({data}) => {
+
     return(
-        <div>Table</div>
+        <table>
+            <thead>
+                <tr>Company</tr>
+                <tr>Color</tr>
+                <tr>Score</tr>
+            </thead>
+            <tbody></tbody>
+        </table>
     );
 }
 
