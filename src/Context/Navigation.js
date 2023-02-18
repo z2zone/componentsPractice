@@ -1,7 +1,9 @@
 import { createContext, useEffect, useState } from "react";
 
+// 1. Create Context
 const NavigationContext = createContext();
 
+// 2. Create Provider with the context and pass in value props that need to be shared
 const NavigationProvider = ({children}) => {
 
     const [windowPath, setWindowPath] = useState(window.location.pathname);
@@ -13,8 +15,8 @@ const NavigationProvider = ({children}) => {
     
         return () => {
             window.removeEventListener('popstate', handler);
-        }
-    },[]);
+        };
+    }, []);
 
     const navigate = (destination) => {
         window.history.pushState({}, '', destination);
@@ -28,5 +30,6 @@ const NavigationProvider = ({children}) => {
     );
 }
 
+// 3. Export it
 export { NavigationProvider };
 export default NavigationContext;
