@@ -1,6 +1,11 @@
+import {Fragment} from 'react';
+
 const Table = ({data, dataConfig}) => {
 
     const renderThead = dataConfig.map(obj => {
+        if (obj.header) {
+            return <Fragment key={obj.label}>{obj.header()}</Fragment>
+        }
         return <th key={obj.label}>{obj.label}</th>;
     });
 

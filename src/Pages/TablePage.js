@@ -22,7 +22,8 @@ const TablePage = () => {
         },
         {
             label: "Score", 
-            render: (obj) => obj.score
+            render: (obj) => obj.score,
+            header: () => <th className="bg-red-500">Score</th>
         }
     ];
     
