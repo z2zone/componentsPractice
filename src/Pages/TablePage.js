@@ -1,4 +1,6 @@
 import Table from "../Components/Table";
+import SortableTable from "../Components/SortableTable";
+
 
 const TablePage = () => {
 
@@ -14,7 +16,8 @@ const TablePage = () => {
     const dataConfig = [
         {
             label: "Company", 
-            render: (obj) => obj.name
+            render: (obj) => obj.name,
+            sortValue: (obj) => obj.name
         },
         {
             label: "Color", 
@@ -23,13 +26,13 @@ const TablePage = () => {
         {
             label: "Score", 
             render: (obj) => obj.score,
-            header: () => <th className="bg-red-500">Score</th>
+            sortValue: (obj) => obj.score
         }
     ];
     
     return (
         <div>
-            <Table data={data} dataConfig={dataConfig}/>
+            <SortableTable data={data} dataConfig={dataConfig}/>
         </div>
     );
 }

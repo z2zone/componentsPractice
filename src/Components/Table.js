@@ -5,8 +5,9 @@ const Table = ({data, dataConfig}) => {
     const renderThead = dataConfig.map(obj => {
         if (obj.header) {
             return <Fragment key={obj.label}>{obj.header()}</Fragment>
+        }else{
+            return <th key={obj.label}>{obj.label}</th>;
         }
-        return <th key={obj.label}>{obj.label}</th>;
     });
 
     const renderTbody = data.map((rowData)=>{
