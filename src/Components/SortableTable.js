@@ -36,11 +36,27 @@ const SortableTable = (props) => {
         }
     }
 
+    const getIcons = (label, sortBy, sortOrder) => {
+        if(label !== sortBy){
+            return 'both';
+        }else if(sortOrder === null){
+            return 'both';
+        }else if(sortOrder === 'asc') {
+            return 'up';
+        }else if(sortOrder === 'desc') {
+            return 'down';
+        }
+    }
     const updatedDataConfig = dataConfig.map((columnObject)=>{
         if(columnObject.sortValue){
             return {
                 ...columnObject,
-                header: () => <th onClick={()=>{handleClick(columnObject.label)}}>{columnObject.label} sortable</th>
+                header: () => ( 
+                    <th onClick={()=>{handleClick(columnObject.label)}}>
+                        {columnObject.label}
+                        {getIcons(columnObject.label, sortBy, sortOrder)}
+                    </th> 
+                )
             };
         }else{
             return columnObject;
