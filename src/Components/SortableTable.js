@@ -24,6 +24,12 @@ const SortableTable = (props) => {
     }
     
     const handleClick = (label) =>{
+        if(sortBy && (label !== sortBy)){
+            setSortOrder('asc');
+            setSortBy(label);
+            return;
+        }
+
         if(sortOrder === null){
             setSortOrder('asc');
             setSortBy(label);
@@ -47,12 +53,13 @@ const SortableTable = (props) => {
             return 'down';
         }
     }
+
     const updatedDataConfig = dataConfig.map((columnObject)=>{
         if(columnObject.sortValue){
             return {
                 ...columnObject,
                 header: () => ( 
-                    <th onClick={()=>{handleClick(columnObject.label)}}>
+                    <th className="cursor-pointer hover:bg-blue-500" onClick={()=>{handleClick(columnObject.label)}}>
                         {columnObject.label}
                         {getIcons(columnObject.label, sortBy, sortOrder)}
                     </th> 
